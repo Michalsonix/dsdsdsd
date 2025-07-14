@@ -1,0 +1,798 @@
+boogeyman@BOOGEYMAN:~/xmrig/build$ tree
+.
+├── CMakeCache.txt
+├── CMakeFiles
+│   ├── 3.28.3
+│   │   ├── CMakeASMCompiler.cmake
+│   │   ├── CMakeCCompiler.cmake
+│   │   ├── CMakeCXXCompiler.cmake
+│   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│   │   ├── CMakeSystem.cmake
+│   │   ├── CompilerIdASM
+│   │   ├── CompilerIdC
+│   │   │   ├── CMakeCCompilerId.c
+│   │   │   ├── a.out
+│   │   │   └── tmp
+│   │   └── CompilerIdCXX
+│   │       ├── CMakeCXXCompilerId.cpp
+│   │       ├── a.out
+│   │       └── tmp
+│   ├── CMakeConfigureLog.yaml
+│   ├── CMakeDirectoryInformation.cmake
+│   ├── CMakeScratch
+│   ├── Makefile.cmake
+│   ├── Makefile2
+│   ├── TargetDirectories.txt
+│   ├── cmake.check_cache
+│   ├── pkgRedirects
+│   ├── progress.marks
+│   ├── xmrig-asm.dir
+│   │   ├── ASM.includecache
+│   │   ├── DependInfo.cmake
+│   │   ├── build.make
+│   │   ├── cmake_clean.cmake
+│   │   ├── cmake_clean_target.cmake
+│   │   ├── compiler_depend.make
+│   │   ├── compiler_depend.ts
+│   │   ├── depend.internal
+│   │   ├── depend.make
+│   │   ├── flags.make
+│   │   ├── link.txt
+│   │   ├── progress.make
+│   │   └── src
+│   │       └── crypto
+│   │           └── cn
+│   │               └── asm
+│   │                   ├── CryptonightR_template.S.o
+│   │                   └── cn_main_loop.S.o
+│   └── xmrig.dir
+│       ├── DependInfo.cmake
+│       ├── build.make
+│       ├── cmake_clean.cmake
+│       ├── compiler_depend.make
+│       ├── compiler_depend.ts
+│       ├── depend.make
+│       ├── flags.make
+│       ├── link.txt
+│       ├── progress.make
+│       └── src
+│           ├── 3rdparty
+│           │   ├── fmt
+│           │   │   ├── format.cc.o
+│           │   │   └── format.cc.o.d
+│           │   └── llhttp
+│           │       ├── api.c.o
+│           │       ├── api.c.o.d
+│           │       ├── http.c.o
+│           │       ├── http.c.o.d
+│           │       ├── llhttp.c.o
+│           │       └── llhttp.c.o.d
+│           ├── App.cpp.o
+│           ├── App.cpp.o.d
+│           ├── App_unix.cpp.o
+│           ├── App_unix.cpp.o.d
+│           ├── Summary.cpp.o
+│           ├── Summary.cpp.o.d
+│           ├── backend
+│           │   ├── common
+│           │   │   ├── GpuWorker.cpp.o
+│           │   │   ├── GpuWorker.cpp.o.d
+│           │   │   ├── Hashrate.cpp.o
+│           │   │   ├── Hashrate.cpp.o.d
+│           │   │   ├── HashrateInterpolator.cpp.o
+│           │   │   ├── HashrateInterpolator.cpp.o.d
+│           │   │   ├── Threads.cpp.o
+│           │   │   ├── Threads.cpp.o.d
+│           │   │   ├── Worker.cpp.o
+│           │   │   ├── Worker.cpp.o.d
+│           │   │   ├── Workers.cpp.o
+│           │   │   ├── Workers.cpp.o.d
+│           │   │   └── benchmark
+│           │   │       ├── BenchState.cpp.o
+│           │   │       ├── BenchState.cpp.o.d
+│           │   │       ├── Benchmark.cpp.o
+│           │   │       └── Benchmark.cpp.o.d
+│           │   ├── cpu
+│           │   │   ├── Cpu.cpp.o
+│           │   │   ├── Cpu.cpp.o.d
+│           │   │   ├── CpuBackend.cpp.o
+│           │   │   ├── CpuBackend.cpp.o.d
+│           │   │   ├── CpuConfig.cpp.o
+│           │   │   ├── CpuConfig.cpp.o.d
+│           │   │   ├── CpuLaunchData.cpp.o
+│           │   │   ├── CpuLaunchData.cpp.o.d
+│           │   │   ├── CpuThread.cpp.o
+│           │   │   ├── CpuThread.cpp.o.d
+│           │   │   ├── CpuThreads.cpp.o
+│           │   │   ├── CpuThreads.cpp.o.d
+│           │   │   ├── CpuWorker.cpp.o
+│           │   │   ├── CpuWorker.cpp.o.d
+│           │   │   └── platform
+│           │   │       ├── BasicCpuInfo.cpp.o
+│           │   │       ├── BasicCpuInfo.cpp.o.d
+│           │   │       ├── HwlocCpuInfo.cpp.o
+│           │   │       └── HwlocCpuInfo.cpp.o.d
+│           │   ├── cuda
+│           │   │   ├── CudaBackend.cpp.o
+│           │   │   ├── CudaBackend.cpp.o.d
+│           │   │   ├── CudaConfig.cpp.o
+│           │   │   ├── CudaConfig.cpp.o.d
+│           │   │   ├── CudaLaunchData.cpp.o
+│           │   │   ├── CudaLaunchData.cpp.o.d
+│           │   │   ├── CudaThread.cpp.o
+│           │   │   ├── CudaThread.cpp.o.d
+│           │   │   ├── CudaThreads.cpp.o
+│           │   │   ├── CudaThreads.cpp.o.d
+│           │   │   ├── CudaWorker.cpp.o
+│           │   │   ├── CudaWorker.cpp.o.d
+│           │   │   ├── runners
+│           │   │   │   ├── CudaBaseRunner.cpp.o
+│           │   │   │   ├── CudaBaseRunner.cpp.o.d
+│           │   │   │   ├── CudaCnRunner.cpp.o
+│           │   │   │   ├── CudaCnRunner.cpp.o.d
+│           │   │   │   ├── CudaKawPowRunner.cpp.o
+│           │   │   │   ├── CudaKawPowRunner.cpp.o.d
+│           │   │   │   ├── CudaRxRunner.cpp.o
+│           │   │   │   └── CudaRxRunner.cpp.o.d
+│           │   │   └── wrappers
+│           │   │       ├── CudaDevice.cpp.o
+│           │   │       ├── CudaDevice.cpp.o.d
+│           │   │       ├── CudaLib.cpp.o
+│           │   │       ├── CudaLib.cpp.o.d
+│           │   │       ├── NvmlLib.cpp.o
+│           │   │       └── NvmlLib.cpp.o.d
+│           │   └── opencl
+│           │       ├── OclBackend.cpp.o
+│           │       ├── OclBackend.cpp.o.d
+│           │       ├── OclCache.cpp.o
+│           │       ├── OclCache.cpp.o.d
+│           │       ├── OclCache_unix.cpp.o
+│           │       ├── OclCache_unix.cpp.o.d
+│           │       ├── OclConfig.cpp.o
+│           │       ├── OclConfig.cpp.o.d
+│           │       ├── OclLaunchData.cpp.o
+│           │       ├── OclLaunchData.cpp.o.d
+│           │       ├── OclThread.cpp.o
+│           │       ├── OclThread.cpp.o.d
+│           │       ├── OclThreads.cpp.o
+│           │       ├── OclThreads.cpp.o.d
+│           │       ├── OclWorker.cpp.o
+│           │       ├── OclWorker.cpp.o.d
+│           │       ├── cl
+│           │       │   ├── OclSource.cpp.o
+│           │       │   └── OclSource.cpp.o.d
+│           │       ├── generators
+│           │       │   ├── ocl_generic_cn_generator.cpp.o
+│           │       │   ├── ocl_generic_cn_generator.cpp.o.d
+│           │       │   ├── ocl_generic_kawpow_generator.cpp.o
+│           │       │   ├── ocl_generic_kawpow_generator.cpp.o.d
+│           │       │   ├── ocl_generic_rx_generator.cpp.o
+│           │       │   ├── ocl_generic_rx_generator.cpp.o.d
+│           │       │   ├── ocl_vega_cn_generator.cpp.o
+│           │       │   └── ocl_vega_cn_generator.cpp.o.d
+│           │       ├── kernels
+│           │       │   ├── Cn0Kernel.cpp.o
+│           │       │   ├── Cn0Kernel.cpp.o.d
+│           │       │   ├── Cn1Kernel.cpp.o
+│           │       │   ├── Cn1Kernel.cpp.o.d
+│           │       │   ├── Cn2Kernel.cpp.o
+│           │       │   ├── Cn2Kernel.cpp.o.d
+│           │       │   ├── CnBranchKernel.cpp.o
+│           │       │   ├── CnBranchKernel.cpp.o.d
+│           │       │   ├── kawpow
+│           │       │   │   ├── KawPow_CalculateDAGKernel.cpp.o
+│           │       │   │   └── KawPow_CalculateDAGKernel.cpp.o.d
+│           │       │   └── rx
+│           │       │       ├── Blake2bHashRegistersKernel.cpp.o
+│           │       │       ├── Blake2bHashRegistersKernel.cpp.o.d
+│           │       │       ├── Blake2bInitialHashBigKernel.cpp.o
+│           │       │       ├── Blake2bInitialHashBigKernel.cpp.o.d
+│           │       │       ├── Blake2bInitialHashDoubleKernel.cpp.o
+│           │       │       ├── Blake2bInitialHashDoubleKernel.cpp.o.d
+│           │       │       ├── Blake2bInitialHashKernel.cpp.o
+│           │       │       ├── Blake2bInitialHashKernel.cpp.o.d
+│           │       │       ├── ExecuteVmKernel.cpp.o
+│           │       │       ├── ExecuteVmKernel.cpp.o.d
+│           │       │       ├── FillAesKernel.cpp.o
+│           │       │       ├── FillAesKernel.cpp.o.d
+│           │       │       ├── FindSharesKernel.cpp.o
+│           │       │       ├── FindSharesKernel.cpp.o.d
+│           │       │       ├── HashAesKernel.cpp.o
+│           │       │       ├── HashAesKernel.cpp.o.d
+│           │       │       ├── InitVmKernel.cpp.o
+│           │       │       ├── InitVmKernel.cpp.o.d
+│           │       │       ├── RxJitKernel.cpp.o
+│           │       │       ├── RxJitKernel.cpp.o.d
+│           │       │       ├── RxRunKernel.cpp.o
+│           │       │       └── RxRunKernel.cpp.o.d
+│           │       ├── runners
+│           │       │   ├── OclBaseRunner.cpp.o
+│           │       │   ├── OclBaseRunner.cpp.o.d
+│           │       │   ├── OclCnRunner.cpp.o
+│           │       │   ├── OclCnRunner.cpp.o.d
+│           │       │   ├── OclKawPowRunner.cpp.o
+│           │       │   ├── OclKawPowRunner.cpp.o.d
+│           │       │   ├── OclRxBaseRunner.cpp.o
+│           │       │   ├── OclRxBaseRunner.cpp.o.d
+│           │       │   ├── OclRxJitRunner.cpp.o
+│           │       │   ├── OclRxJitRunner.cpp.o.d
+│           │       │   ├── OclRxVmRunner.cpp.o
+│           │       │   ├── OclRxVmRunner.cpp.o.d
+│           │       │   └── tools
+│           │       │       ├── OclCnR.cpp.o
+│           │       │       ├── OclCnR.cpp.o.d
+│           │       │       ├── OclKawPow.cpp.o
+│           │       │       ├── OclKawPow.cpp.o.d
+│           │       │       ├── OclSharedData.cpp.o
+│           │       │       ├── OclSharedData.cpp.o.d
+│           │       │       ├── OclSharedState.cpp.o
+│           │       │       └── OclSharedState.cpp.o.d
+│           │       └── wrappers
+│           │           ├── AdlLib_linux.cpp.o
+│           │           ├── AdlLib_linux.cpp.o.d
+│           │           ├── OclContext.cpp.o
+│           │           ├── OclContext.cpp.o.d
+│           │           ├── OclDevice.cpp.o
+│           │           ├── OclDevice.cpp.o.d
+│           │           ├── OclError.cpp.o
+│           │           ├── OclError.cpp.o.d
+│           │           ├── OclKernel.cpp.o
+│           │           ├── OclKernel.cpp.o.d
+│           │           ├── OclLib.cpp.o
+│           │           ├── OclLib.cpp.o.d
+│           │           ├── OclPlatform.cpp.o
+│           │           └── OclPlatform.cpp.o.d
+│           ├── base
+│           │   ├── api
+│           │   │   ├── Api.cpp.o
+│           │   │   ├── Api.cpp.o.d
+│           │   │   ├── Httpd.cpp.o
+│           │   │   ├── Httpd.cpp.o.d
+│           │   │   └── requests
+│           │   │       ├── ApiRequest.cpp.o
+│           │   │       ├── ApiRequest.cpp.o.d
+│           │   │       ├── HttpApiRequest.cpp.o
+│           │   │       └── HttpApiRequest.cpp.o.d
+│           │   ├── crypto
+│           │   │   ├── Algorithm.cpp.o
+│           │   │   ├── Algorithm.cpp.o.d
+│           │   │   ├── Coin.cpp.o
+│           │   │   ├── Coin.cpp.o.d
+│           │   │   ├── keccak.cpp.o
+│           │   │   ├── keccak.cpp.o.d
+│           │   │   ├── sha3.cpp.o
+│           │   │   └── sha3.cpp.o.d
+│           │   ├── io
+│           │   │   ├── Async.cpp.o
+│           │   │   ├── Async.cpp.o.d
+│           │   │   ├── Console.cpp.o
+│           │   │   ├── Console.cpp.o.d
+│           │   │   ├── Env.cpp.o
+│           │   │   ├── Env.cpp.o.d
+│           │   │   ├── Signals.cpp.o
+│           │   │   ├── Signals.cpp.o.d
+│           │   │   ├── Watcher.cpp.o
+│           │   │   ├── Watcher.cpp.o.d
+│           │   │   ├── json
+│           │   │   │   ├── Json.cpp.o
+│           │   │   │   ├── Json.cpp.o.d
+│           │   │   │   ├── JsonChain.cpp.o
+│           │   │   │   ├── JsonChain.cpp.o.d
+│           │   │   │   ├── JsonRequest.cpp.o
+│           │   │   │   ├── JsonRequest.cpp.o.d
+│           │   │   │   ├── Json_unix.cpp.o
+│           │   │   │   └── Json_unix.cpp.o.d
+│           │   │   └── log
+│           │   │       ├── FileLogWriter.cpp.o
+│           │   │       ├── FileLogWriter.cpp.o.d
+│           │   │       ├── Log.cpp.o
+│           │   │       ├── Log.cpp.o.d
+│           │   │       ├── Tags.cpp.o
+│           │   │       ├── Tags.cpp.o.d
+│           │   │       └── backends
+│           │   │           ├── ConsoleLog.cpp.o
+│           │   │           ├── ConsoleLog.cpp.o.d
+│           │   │           ├── FileLog.cpp.o
+│           │   │           ├── FileLog.cpp.o.d
+│           │   │           ├── SysLog.cpp.o
+│           │   │           └── SysLog.cpp.o.d
+│           │   ├── kernel
+│           │   │   ├── Base.cpp.o
+│           │   │   ├── Base.cpp.o.d
+│           │   │   ├── Entry.cpp.o
+│           │   │   ├── Entry.cpp.o.d
+│           │   │   ├── Platform.cpp.o
+│           │   │   ├── Platform.cpp.o.d
+│           │   │   ├── Platform_hwloc.cpp.o
+│           │   │   ├── Platform_hwloc.cpp.o.d
+│           │   │   ├── Platform_unix.cpp.o
+│           │   │   ├── Platform_unix.cpp.o.d
+│           │   │   ├── Process.cpp.o
+│           │   │   ├── Process.cpp.o.d
+│           │   │   ├── Process_unix.cpp.o
+│           │   │   ├── Process_unix.cpp.o.d
+│           │   │   └── config
+│           │   │       ├── BaseConfig.cpp.o
+│           │   │       ├── BaseConfig.cpp.o.d
+│           │   │       ├── BaseTransform.cpp.o
+│           │   │       ├── BaseTransform.cpp.o.d
+│           │   │       ├── Title.cpp.o
+│           │   │       └── Title.cpp.o.d
+│           │   ├── net
+│           │   │   ├── dns
+│           │   │   │   ├── Dns.cpp.o
+│           │   │   │   ├── Dns.cpp.o.d
+│           │   │   │   ├── DnsConfig.cpp.o
+│           │   │   │   ├── DnsConfig.cpp.o.d
+│           │   │   │   ├── DnsRecord.cpp.o
+│           │   │   │   ├── DnsRecord.cpp.o.d
+│           │   │   │   ├── DnsRecords.cpp.o
+│           │   │   │   ├── DnsRecords.cpp.o.d
+│           │   │   │   ├── DnsUvBackend.cpp.o
+│           │   │   │   └── DnsUvBackend.cpp.o.d
+│           │   │   ├── http
+│           │   │   │   ├── Fetch.cpp.o
+│           │   │   │   ├── Fetch.cpp.o.d
+│           │   │   │   ├── Http.cpp.o
+│           │   │   │   ├── Http.cpp.o.d
+│           │   │   │   ├── HttpApiResponse.cpp.o
+│           │   │   │   ├── HttpApiResponse.cpp.o.d
+│           │   │   │   ├── HttpClient.cpp.o
+│           │   │   │   ├── HttpClient.cpp.o.d
+│           │   │   │   ├── HttpContext.cpp.o
+│           │   │   │   ├── HttpContext.cpp.o.d
+│           │   │   │   ├── HttpData.cpp.o
+│           │   │   │   ├── HttpData.cpp.o.d
+│           │   │   │   ├── HttpListener.cpp.o
+│           │   │   │   ├── HttpListener.cpp.o.d
+│           │   │   │   ├── HttpResponse.cpp.o
+│           │   │   │   └── HttpResponse.cpp.o.d
+│           │   │   ├── https
+│           │   │   │   ├── HttpsClient.cpp.o
+│           │   │   │   ├── HttpsClient.cpp.o.d
+│           │   │   │   ├── HttpsContext.cpp.o
+│           │   │   │   ├── HttpsContext.cpp.o.d
+│           │   │   │   ├── HttpsServer.cpp.o
+│           │   │   │   └── HttpsServer.cpp.o.d
+│           │   │   ├── stratum
+│           │   │   │   ├── AutoClient.cpp.o
+│           │   │   │   ├── AutoClient.cpp.o.d
+│           │   │   │   ├── BaseClient.cpp.o
+│           │   │   │   ├── BaseClient.cpp.o.d
+│           │   │   │   ├── Client.cpp.o
+│           │   │   │   ├── Client.cpp.o.d
+│           │   │   │   ├── DaemonClient.cpp.o
+│           │   │   │   ├── DaemonClient.cpp.o.d
+│           │   │   │   ├── EthStratumClient.cpp.o
+│           │   │   │   ├── EthStratumClient.cpp.o.d
+│           │   │   │   ├── Job.cpp.o
+│           │   │   │   ├── Job.cpp.o.d
+│           │   │   │   ├── NetworkState.cpp.o
+│           │   │   │   ├── NetworkState.cpp.o.d
+│           │   │   │   ├── Pool.cpp.o
+│           │   │   │   ├── Pool.cpp.o.d
+│           │   │   │   ├── Pools.cpp.o
+│           │   │   │   ├── Pools.cpp.o.d
+│           │   │   │   ├── ProxyUrl.cpp.o
+│           │   │   │   ├── ProxyUrl.cpp.o.d
+│           │   │   │   ├── SelfSelectClient.cpp.o
+│           │   │   │   ├── SelfSelectClient.cpp.o.d
+│           │   │   │   ├── Socks5.cpp.o
+│           │   │   │   ├── Socks5.cpp.o.d
+│           │   │   │   ├── Tls.cpp.o
+│           │   │   │   ├── Tls.cpp.o.d
+│           │   │   │   ├── Url.cpp.o
+│           │   │   │   ├── Url.cpp.o.d
+│           │   │   │   ├── benchmark
+│           │   │   │   │   ├── BenchClient.cpp.o
+│           │   │   │   │   ├── BenchClient.cpp.o.d
+│           │   │   │   │   ├── BenchConfig.cpp.o
+│           │   │   │   │   └── BenchConfig.cpp.o.d
+│           │   │   │   └── strategies
+│           │   │   │       ├── FailoverStrategy.cpp.o
+│           │   │   │       ├── FailoverStrategy.cpp.o.d
+│           │   │   │       ├── SinglePoolStrategy.cpp.o
+│           │   │   │       └── SinglePoolStrategy.cpp.o.d
+│           │   │   ├── tls
+│           │   │   │   ├── ServerTls.cpp.o
+│           │   │   │   ├── ServerTls.cpp.o.d
+│           │   │   │   ├── TlsConfig.cpp.o
+│           │   │   │   ├── TlsConfig.cpp.o.d
+│           │   │   │   ├── TlsContext.cpp.o
+│           │   │   │   ├── TlsContext.cpp.o.d
+│           │   │   │   ├── TlsGen.cpp.o
+│           │   │   │   └── TlsGen.cpp.o.d
+│           │   │   └── tools
+│           │   │       ├── LineReader.cpp.o
+│           │   │       ├── LineReader.cpp.o.d
+│           │   │       ├── NetBuffer.cpp.o
+│           │   │       ├── NetBuffer.cpp.o.d
+│           │   │       ├── TcpServer.cpp.o
+│           │   │       └── TcpServer.cpp.o.d
+│           │   └── tools
+│           │       ├── Arguments.cpp.o
+│           │       ├── Arguments.cpp.o.d
+│           │       ├── Chrono.cpp.o
+│           │       ├── Chrono.cpp.o.d
+│           │       ├── Cvt.cpp.o
+│           │       ├── Cvt.cpp.o.d
+│           │       ├── String.cpp.o
+│           │       ├── String.cpp.o.d
+│           │       ├── Timer.cpp.o
+│           │       ├── Timer.cpp.o.d
+│           │       └── cryptonote
+│           │           ├── BlockTemplate.cpp.o
+│           │           ├── BlockTemplate.cpp.o.d
+│           │           ├── Signatures.cpp.o
+│           │           ├── Signatures.cpp.o.d
+│           │           ├── WalletAddress.cpp.o
+│           │           ├── WalletAddress.cpp.o.d
+│           │           ├── crypto-ops-data.c.o
+│           │           ├── crypto-ops-data.c.o.d
+│           │           ├── crypto-ops.c.o
+│           │           └── crypto-ops.c.o.d
+│           ├── core
+│           │   ├── Controller.cpp.o
+│           │   ├── Controller.cpp.o.d
+│           │   ├── Miner.cpp.o
+│           │   ├── Miner.cpp.o.d
+│           │   ├── Taskbar.cpp.o
+│           │   ├── Taskbar.cpp.o.d
+│           │   └── config
+│           │       ├── Config.cpp.o
+│           │       ├── Config.cpp.o.d
+│           │       ├── ConfigTransform.cpp.o
+│           │       └── ConfigTransform.cpp.o.d
+│           ├── crypto
+│           │   ├── argon2
+│           │   │   ├── Impl.cpp.o
+│           │   │   └── Impl.cpp.o.d
+│           │   ├── cn
+│           │   │   ├── CnCtx.cpp.o
+│           │   │   ├── CnCtx.cpp.o.d
+│           │   │   ├── CnHash.cpp.o
+│           │   │   ├── CnHash.cpp.o.d
+│           │   │   ├── CryptoNight_x86_vaes.cpp.o
+│           │   │   ├── CryptoNight_x86_vaes.cpp.o.d
+│           │   │   ├── c_blake256.c.o
+│           │   │   ├── c_blake256.c.o.d
+│           │   │   ├── c_groestl.c.o
+│           │   │   ├── c_groestl.c.o.d
+│           │   │   ├── c_jh.c.o
+│           │   │   ├── c_jh.c.o.d
+│           │   │   ├── c_skein.c.o
+│           │   │   ├── c_skein.c.o.d
+│           │   │   └── r
+│           │   │       ├── CryptonightR_gen.cpp.o
+│           │   │       └── CryptonightR_gen.cpp.o.d
+│           │   ├── common
+│           │   │   ├── Assembly.cpp.o
+│           │   │   ├── Assembly.cpp.o.d
+│           │   │   ├── HugePagesInfo.cpp.o
+│           │   │   ├── HugePagesInfo.cpp.o.d
+│           │   │   ├── LinuxMemory.cpp.o
+│           │   │   ├── LinuxMemory.cpp.o.d
+│           │   │   ├── MemoryPool.cpp.o
+│           │   │   ├── MemoryPool.cpp.o.d
+│           │   │   ├── NUMAMemoryPool.cpp.o
+│           │   │   ├── NUMAMemoryPool.cpp.o.d
+│           │   │   ├── Nonce.cpp.o
+│           │   │   ├── Nonce.cpp.o.d
+│           │   │   ├── VirtualMemory.cpp.o
+│           │   │   ├── VirtualMemory.cpp.o.d
+│           │   │   ├── VirtualMemory_hwloc.cpp.o
+│           │   │   ├── VirtualMemory_hwloc.cpp.o.d
+│           │   │   ├── VirtualMemory_unix.cpp.o
+│           │   │   └── VirtualMemory_unix.cpp.o.d
+│           │   ├── kawpow
+│           │   │   ├── KPCache.cpp.o
+│           │   │   ├── KPCache.cpp.o.d
+│           │   │   ├── KPHash.cpp.o
+│           │   │   └── KPHash.cpp.o.d
+│           │   ├── randomx
+│           │   │   ├── aes_hash.cpp.o
+│           │   │   ├── aes_hash.cpp.o.d
+│           │   │   ├── allocator.cpp.o
+│           │   │   ├── allocator.cpp.o.d
+│           │   │   ├── blake2
+│           │   │   │   ├── avx2
+│           │   │   │   │   ├── blake2b_avx2.c.o
+│           │   │   │   │   └── blake2b_avx2.c.o.d
+│           │   │   │   ├── blake2b.c.o
+│           │   │   │   ├── blake2b.c.o.d
+│           │   │   │   ├── blake2b_sse41.c.o
+│           │   │   │   └── blake2b_sse41.c.o.d
+│           │   │   ├── blake2_generator.cpp.o
+│           │   │   ├── blake2_generator.cpp.o.d
+│           │   │   ├── bytecode_machine.cpp.o
+│           │   │   ├── bytecode_machine.cpp.o.d
+│           │   │   ├── dataset.cpp.o
+│           │   │   ├── dataset.cpp.o.d
+│           │   │   ├── instructions_portable.cpp.o
+│           │   │   ├── instructions_portable.cpp.o.d
+│           │   │   ├── jit_compiler_x86.cpp.o
+│           │   │   ├── jit_compiler_x86.cpp.o.d
+│           │   │   ├── jit_compiler_x86_static.S.o
+│           │   │   ├── jit_compiler_x86_static.S.o.d
+│           │   │   ├── randomx.cpp.o
+│           │   │   ├── randomx.cpp.o.d
+│           │   │   ├── reciprocal.c.o
+│           │   │   ├── reciprocal.c.o.d
+│           │   │   ├── soft_aes.cpp.o
+│           │   │   ├── soft_aes.cpp.o.d
+│           │   │   ├── superscalar.cpp.o
+│           │   │   ├── superscalar.cpp.o.d
+│           │   │   ├── virtual_machine.cpp.o
+│           │   │   ├── virtual_machine.cpp.o.d
+│           │   │   ├── virtual_memory.cpp.o
+│           │   │   ├── virtual_memory.cpp.o.d
+│           │   │   ├── vm_compiled.cpp.o
+│           │   │   ├── vm_compiled.cpp.o.d
+│           │   │   ├── vm_compiled_light.cpp.o
+│           │   │   ├── vm_compiled_light.cpp.o.d
+│           │   │   ├── vm_interpreted.cpp.o
+│           │   │   ├── vm_interpreted.cpp.o.d
+│           │   │   ├── vm_interpreted_light.cpp.o
+│           │   │   └── vm_interpreted_light.cpp.o.d
+│           │   └── rx
+│           │       ├── Rx.cpp.o
+│           │       ├── Rx.cpp.o.d
+│           │       ├── RxAlgo.cpp.o
+│           │       ├── RxAlgo.cpp.o.d
+│           │       ├── RxBasicStorage.cpp.o
+│           │       ├── RxBasicStorage.cpp.o.d
+│           │       ├── RxCache.cpp.o
+│           │       ├── RxCache.cpp.o.d
+│           │       ├── RxConfig.cpp.o
+│           │       ├── RxConfig.cpp.o.d
+│           │       ├── RxDataset.cpp.o
+│           │       ├── RxDataset.cpp.o.d
+│           │       ├── RxFix_linux.cpp.o
+│           │       ├── RxFix_linux.cpp.o.d
+│           │       ├── RxMsr.cpp.o
+│           │       ├── RxMsr.cpp.o.d
+│           │       ├── RxNUMAStorage.cpp.o
+│           │       ├── RxNUMAStorage.cpp.o.d
+│           │       ├── RxQueue.cpp.o
+│           │       ├── RxQueue.cpp.o.d
+│           │       ├── RxVm.cpp.o
+│           │       └── RxVm.cpp.o.d
+│           ├── hw
+│           │   ├── api
+│           │   │   ├── HwApi.cpp.o
+│           │   │   └── HwApi.cpp.o.d
+│           │   ├── dmi
+│           │   │   ├── DmiBoard.cpp.o
+│           │   │   ├── DmiBoard.cpp.o.d
+│           │   │   ├── DmiMemory.cpp.o
+│           │   │   ├── DmiMemory.cpp.o.d
+│           │   │   ├── DmiReader.cpp.o
+│           │   │   ├── DmiReader.cpp.o.d
+│           │   │   ├── DmiReader_unix.cpp.o
+│           │   │   ├── DmiReader_unix.cpp.o.d
+│           │   │   ├── DmiTools.cpp.o
+│           │   │   └── DmiTools.cpp.o.d
+│           │   └── msr
+│           │       ├── Msr.cpp.o
+│           │       ├── Msr.cpp.o.d
+│           │       ├── MsrItem.cpp.o
+│           │       ├── MsrItem.cpp.o.d
+│           │       ├── Msr_linux.cpp.o
+│           │       └── Msr_linux.cpp.o.d
+│           ├── net
+│           │   ├── JobResults.cpp.o
+│           │   ├── JobResults.cpp.o.d
+│           │   ├── Network.cpp.o
+│           │   ├── Network.cpp.o.d
+│           │   └── strategies
+│           │       ├── DonateStrategy.cpp.o
+│           │       └── DonateStrategy.cpp.o.d
+│           ├── xmrig.cpp.o
+│           └── xmrig.cpp.o.d
+├── Makefile
+├── cmake_install.cmake
+├── libxmrig-asm.a
+├── src
+│   ├── 3rdparty
+│   │   ├── argon2
+│   │   │   ├── CMakeFiles
+│   │   │   │   ├── CMakeDirectoryInformation.cmake
+│   │   │   │   ├── argon2-avx2.dir
+│   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   ├── arch
+│   │   │   │   │   │   └── x86_64
+│   │   │   │   │   │       └── lib
+│   │   │   │   │   │           ├── argon2-avx2.c.o
+│   │   │   │   │   │           └── argon2-avx2.c.o.d
+│   │   │   │   │   ├── build.make
+│   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   ├── cmake_clean_target.cmake
+│   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   ├── depend.make
+│   │   │   │   │   ├── flags.make
+│   │   │   │   │   ├── link.txt
+│   │   │   │   │   └── progress.make
+│   │   │   │   ├── argon2-avx512f.dir
+│   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   ├── arch
+│   │   │   │   │   │   └── x86_64
+│   │   │   │   │   │       └── lib
+│   │   │   │   │   │           ├── argon2-avx512f.c.o
+│   │   │   │   │   │           └── argon2-avx512f.c.o.d
+│   │   │   │   │   ├── build.make
+│   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   ├── cmake_clean_target.cmake
+│   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   ├── depend.make
+│   │   │   │   │   ├── flags.make
+│   │   │   │   │   ├── link.txt
+│   │   │   │   │   └── progress.make
+│   │   │   │   ├── argon2-sse2.dir
+│   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   ├── arch
+│   │   │   │   │   │   └── x86_64
+│   │   │   │   │   │       └── lib
+│   │   │   │   │   │           ├── argon2-sse2.c.o
+│   │   │   │   │   │           └── argon2-sse2.c.o.d
+│   │   │   │   │   ├── build.make
+│   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   ├── cmake_clean_target.cmake
+│   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   ├── depend.make
+│   │   │   │   │   ├── flags.make
+│   │   │   │   │   ├── link.txt
+│   │   │   │   │   └── progress.make
+│   │   │   │   ├── argon2-ssse3.dir
+│   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   ├── arch
+│   │   │   │   │   │   └── x86_64
+│   │   │   │   │   │       └── lib
+│   │   │   │   │   │           ├── argon2-ssse3.c.o
+│   │   │   │   │   │           └── argon2-ssse3.c.o.d
+│   │   │   │   │   ├── build.make
+│   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   ├── cmake_clean_target.cmake
+│   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   ├── depend.make
+│   │   │   │   │   ├── flags.make
+│   │   │   │   │   ├── link.txt
+│   │   │   │   │   └── progress.make
+│   │   │   │   ├── argon2-xop.dir
+│   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   ├── arch
+│   │   │   │   │   │   └── x86_64
+│   │   │   │   │   │       └── lib
+│   │   │   │   │   │           ├── argon2-xop.c.o
+│   │   │   │   │   │           └── argon2-xop.c.o.d
+│   │   │   │   │   ├── build.make
+│   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   ├── cmake_clean_target.cmake
+│   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   ├── depend.make
+│   │   │   │   │   ├── flags.make
+│   │   │   │   │   ├── link.txt
+│   │   │   │   │   └── progress.make
+│   │   │   │   ├── argon2.dir
+│   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   ├── arch
+│   │   │   │   │   │   └── x86_64
+│   │   │   │   │   │       └── lib
+│   │   │   │   │   │           ├── argon2-arch.c.o
+│   │   │   │   │   │           └── argon2-arch.c.o.d
+│   │   │   │   │   ├── build.make
+│   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   ├── cmake_clean_target.cmake
+│   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   ├── depend.make
+│   │   │   │   │   ├── flags.make
+│   │   │   │   │   ├── lib
+│   │   │   │   │   │   ├── argon2.c.o
+│   │   │   │   │   │   ├── argon2.c.o.d
+│   │   │   │   │   │   ├── blake2
+│   │   │   │   │   │   │   ├── blake2.c.o
+│   │   │   │   │   │   │   └── blake2.c.o.d
+│   │   │   │   │   │   ├── core.c.o
+│   │   │   │   │   │   ├── core.c.o.d
+│   │   │   │   │   │   ├── encoding.c.o
+│   │   │   │   │   │   ├── encoding.c.o.d
+│   │   │   │   │   │   ├── genkat.c.o
+│   │   │   │   │   │   ├── genkat.c.o.d
+│   │   │   │   │   │   ├── impl-select.c.o
+│   │   │   │   │   │   └── impl-select.c.o.d
+│   │   │   │   │   ├── link.txt
+│   │   │   │   │   └── progress.make
+│   │   │   │   └── progress.marks
+│   │   │   ├── Makefile
+│   │   │   ├── cmake_install.cmake
+│   │   │   ├── libargon2-avx2.a
+│   │   │   ├── libargon2-avx512f.a
+│   │   │   ├── libargon2-sse2.a
+│   │   │   ├── libargon2-ssse3.a
+│   │   │   ├── libargon2-xop.a
+│   │   │   └── libargon2.a
+│   │   └── libethash
+│   │       ├── CMakeFiles
+│   │       │   ├── CMakeDirectoryInformation.cmake
+│   │       │   ├── ethash.dir
+│   │       │   │   ├── DependInfo.cmake
+│   │       │   │   ├── build.make
+│   │       │   │   ├── cmake_clean.cmake
+│   │       │   │   ├── cmake_clean_target.cmake
+│   │       │   │   ├── compiler_depend.make
+│   │       │   │   ├── compiler_depend.ts
+│   │       │   │   ├── depend.make
+│   │       │   │   ├── ethash_internal.c.o
+│   │       │   │   ├── ethash_internal.c.o.d
+│   │       │   │   ├── flags.make
+│   │       │   │   ├── keccakf800.c.o
+│   │       │   │   ├── keccakf800.c.o.d
+│   │       │   │   ├── link.txt
+│   │       │   │   └── progress.make
+│   │       │   └── progress.marks
+│   │       ├── Makefile
+│   │       ├── cmake_install.cmake
+│   │       └── libethash.a
+│   └── crypto
+│       └── ghostrider
+│           ├── CMakeFiles
+│           │   ├── CMakeDirectoryInformation.cmake
+│           │   ├── ghostrider.dir
+│           │   │   ├── DependInfo.cmake
+│           │   │   ├── build.make
+│           │   │   ├── cmake_clean.cmake
+│           │   │   ├── cmake_clean_target.cmake
+│           │   │   ├── compiler_depend.make
+│           │   │   ├── compiler_depend.ts
+│           │   │   ├── depend.make
+│           │   │   ├── flags.make
+│           │   │   ├── ghostrider.cpp.o
+│           │   │   ├── ghostrider.cpp.o.d
+│           │   │   ├── link.txt
+│           │   │   ├── progress.make
+│           │   │   ├── sph_blake.c.o
+│           │   │   ├── sph_blake.c.o.d
+│           │   │   ├── sph_bmw.c.o
+│           │   │   ├── sph_bmw.c.o.d
+│           │   │   ├── sph_cubehash.c.o
+│           │   │   ├── sph_cubehash.c.o.d
+│           │   │   ├── sph_echo.c.o
+│           │   │   ├── sph_echo.c.o.d
+│           │   │   ├── sph_fugue.c.o
+│           │   │   ├── sph_fugue.c.o.d
+│           │   │   ├── sph_groestl.c.o
+│           │   │   ├── sph_groestl.c.o.d
+│           │   │   ├── sph_hamsi.c.o
+│           │   │   ├── sph_hamsi.c.o.d
+│           │   │   ├── sph_jh.c.o
+│           │   │   ├── sph_jh.c.o.d
+│           │   │   ├── sph_keccak.c.o
+│           │   │   ├── sph_keccak.c.o.d
+│           │   │   ├── sph_luffa.c.o
+│           │   │   ├── sph_luffa.c.o.d
+│           │   │   ├── sph_sha2.c.o
+│           │   │   ├── sph_sha2.c.o.d
+│           │   │   ├── sph_shabal.c.o
+│           │   │   ├── sph_shabal.c.o.d
+│           │   │   ├── sph_shavite.c.o
+│           │   │   ├── sph_shavite.c.o.d
+│           │   │   ├── sph_simd.c.o
+│           │   │   ├── sph_simd.c.o.d
+│           │   │   ├── sph_skein.c.o
+│           │   │   ├── sph_skein.c.o.d
+│           │   │   ├── sph_whirlpool.c.o
+│           │   │   └── sph_whirlpool.c.o.d
+│           │   └── progress.marks
+│           ├── Makefile
+│           ├── cmake_install.cmake
+│           └── libghostrider.a
+└── svchost.exe
+
+113 directories, 681 files
+boogeyman@BOOGEYMAN:~/xmrig/build$
